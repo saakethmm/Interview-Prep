@@ -2,6 +2,52 @@
 
 ## Algebra & Calculus
 
+### Vectors
+
+#### Dot Product
+
+1. [E] What’s the geometric interpretation of the dot product of two vectors?
+   * The dot product of two vectors $$p = \bf{a} \cdot \bf{b} = \|a\|\|b\| \cos(\theta_{ab})$$, which means that:
+     * the more positive the dot product is, the more aligned the two vectors are in direction
+     * the more negative it is, the more they point in opposite directions
+     * the closer it is to 0, the more orthogonal they are 
+
+2. [E] Given a vector *u*, find vector *v* of unit length such that the dot product of *u* and *v* is maximum.
+   * $$v = \frac{\bf{u}}{\|\bf{u}\|}$$, or the unit vector in the direction of $$\bf{u}$$, which means the dot product is exactly $$\bf{u}$$ 
+
+#### Outer Product
+
+1. [E] Given two vectors *a*=[3,2,1] and  *b*=[−1,0,1]. Calculate the outer product $$a b^\top$$?
+   * $$\begin{bmatrix}
+     -3 & 0 & 3 \\
+     -2 & 0 & 2 \\
+     -1 & 0 & 1
+     \end{bmatrix}$$
+2. [M] Give an example of how the outer product can be useful in ML.
+   * Computing **covariance matrix** $$xx^\top$$, useful in determining correlations between elements of vector 
+     * *Whitening* data
+   * Computing **Fisher Information matrix**, useful for natural gradient descent (approximation of curvature)
+   * Cross/Self-Attention: $$QK^\top$$ computation is an outer product over each batch/head
+
+#### General 
+
+1. [E] What does it mean for two vectors to be linearly independent?
+   * Two vectors are linearly independent $$\iff$$ $$\alpha_1 \bf{a} + \alpha_2 \bf{b} = 0$$ for  $$\alpha_1 = \alpha_2 = 0$$ 
+
+2. [M] Given two sets of vectors *A*=*a*1,*a*2,*a*3,...,*an* and *B*=*b*1,*b*2,*b*3,...,*bm*. How do you check that they share the same basis?
+   * Determine $$\text{rank}({A})$$, $$\text{rank}({B})$$ 
+   * If both are equal, then they both span the same subspace $\rightarrow$ same basis 
+   * Else, they have different basis vectors 
+3. [M] Given *n* vectors, each of *d* dimensions. What is the dimension of their span?
+   * It would be upper bounded by $$\min(n, d)$$ 
+   * Linearly dependent vectors would reduce max dimension beyond upper bound 
+
+#### Norms 
+
+1. 
+
+
+
 
 
 ### Calculus & Convex Optimization
