@@ -1,41 +1,34 @@
+from collections import List
+
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         # binary search across rows first to pick right row
         lower_row = 0
-        upper_row = len(matrix)
+        upper_row = len(matrix) - 1
 
-        while lower_row < upper_row:
+        while lower_row <= upper_row:  # always <= in case it's 1 element
             mid_row = (lower_row + upper_row) // 2
-            print(matrix[mid_row][0])
+            # adjust upper_row down if target is smaller than smallest element in mid_row
             if target < matrix[mid_row][0]:
-                # break out of loop if unchanged
-                if upper_row == mid_row:
-                    break
-                upper_row = mid_row
+                upper_row = mid_row - 1
+            # adjust lower_row up if target larger than largest element in mid_row
+            elif target > matrix[mid_row][-1]:
+                lower_row = mid_row + 1
             else:
-                # break out of loop if unchanged
-                if lower_row == mid_row:
-                    break
-                lower_row = mid_row
+                break
 
-        print(f'Reached: {mid_row}')
         # binary search across cols of selected row
         lower = 0
-        upper = len(matrix[0])
+        upper = len(matrix[0]) - 1
 
-        while lower < upper:
+        while lower <= upper:
             mid = (lower + upper) // 2
             if target == matrix[mid_row][mid]:
                 return True
             elif target < matrix[mid_row][mid]:
-                if upper == mid:
-                    break
-                upper = mid
+                upper = mid - 1
             else:
-                if lower == mid:
-                    break
-                lower = mid
-        
+                lower = mid + 1
         return False
         
         
